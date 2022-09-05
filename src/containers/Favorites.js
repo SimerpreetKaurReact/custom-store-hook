@@ -3,12 +3,14 @@ import { useSelector } from "react-redux";
 
 import FavoriteItem from "../components/Favorites/FavoriteItem";
 import { ProductContext } from "../context/ProductsContext";
+import { useStore } from "../hook-store/store";
 import "./Products.css";
 
 const Favorites = (props) => {
-  const favoriteProducts = useContext(ProductContext).products.filter(
-    (p) => p.isFavorite
-  );
+  const favoriteProducts = useStore()[0].products.filter((p) => p.isFavorite);
+  // const favoriteProducts = useContext(ProductContext).products.filter(
+  //   (p) => p.isFavorite
+  // );
   // const favoriteProducts = useSelector((state) =>
   //   state.shop.products.filter((p) => p.isFavorite)
   // );
